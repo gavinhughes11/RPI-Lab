@@ -40,5 +40,14 @@ def task2():
     elif number > 0:
         print("Your number is positive!")
 
+def task3():
+    # Iterate between 0 and 100
+    for i in range(101):
+        # Print if divisible by 4
+        if (i % 4) == 0:
+            print(i, end=" ")
+
+
 #task1()
 #task2()
+task3()
