@@ -1,3 +1,5 @@
+import math
+
 def task1():
     #Task 1
 
@@ -47,7 +49,24 @@ def task3():
         if (i % 4) == 0:
             print(i, end=" ")
 
+def task4():
+    sum = 0
+    sumInput = input("Enter an integer: ")
+    while sumInput != 'q':
+        sum = sum + int(sumInput)
+        sumInput = input("Enter an integer: ")
+    print("Your sum is",sum)
+
+def task5():
+    euler = 0
+    index = input("How many terms would you like to sum?")
+    for i in range(int(index)):
+        euler = euler + (1/math.factorial(i))
+    print("Your number is:", euler)
+
 
 #task1()
 #task2()
-task3()
+#task3()
+#task4()
+#task5()
