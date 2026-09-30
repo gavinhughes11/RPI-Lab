@@ -59,14 +59,65 @@ def task4():
 
 def task5():
     euler = 0
-    index = input("How many terms would you like to sum?")
+    index = input("How many terms would you like to sum? ")
     for i in range(int(index)):
         euler = euler + (1/math.factorial(i))
     print("Your number is:", euler)
 
+def task8():
+    number = float(input("Enter a number to truncate: "))
+    digits = int(input("Enter a number of decimals to truncate to: "))
+    factor = 10 ** digits
+    truncated = (int)(number * factor)/factor
+    print("Your number truncated is:",truncated)
 
-#task1()
-#task2()
-#task3()
-#task4()
-#task5()
+def get_grade_range(score):
+    if score >= 85:
+        grade = 'A'
+    elif score >= 70:
+        grade = 'B'
+    elif score >= 60:
+        grade = 'C'
+    elif score >= 50:
+        grade = 'D'
+    else:
+        # Print the fail message and exit the function immediately
+        print('This grade is in the Fail range.')
+        return 
+
+    print(f"This grade is in the {grade} range. The instructor will decide if it is {grade}+, {grade}, or {grade}-.")
+
+def task9():
+    # User Inputs
+    ice = float(input("Enter total ICE score (out of 500): "))
+    exam1 = float(input("Enter Exam 1 score (out of 60): "))
+    exam2 = float(input("Enter Exam 2 score (out of 60): "))
+    final_exam = float(input("Enter Final Exam score (out of 100): "))
+    quiz = float(input("Enter Orientation Quiz score (out of 40): "))
+    labs = float(input("Enter total Labs score (out of 900): "))
+    hw = float(input("Enter total Homework score (out of 400): "))
+
+    points_earned = (
+        (ice / 500) * 14
+        + (exam1 / 60) * 10
+        + (exam2 / 60) * 10
+        + (final_exam / 100) * 20
+        + (quiz / 40) * 1
+        + (labs / 900) * 25
+        + (hw / 400) * 10
+    )
+    
+    # Scales the 90 available points up to 100%
+    final_percentage = (points_earned / 90) * 100
+
+    # Display output
+    print(f"\nFinal Percentage Score: {final_percentage:.2f}%")
+    get_grade_range(final_percentage)
+
+task1()
+task2()
+task3()
+task4()
+task5()
+task8()
+task9()
