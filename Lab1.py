@@ -50,28 +50,39 @@ def task3():
             print(i, end=" ")
 
 def task4():
+    # Continuously sum integers until the user enters 'q' to quit
     sum = 0
-    sumInput = input("Enter an integer: ")
+    sumInput = input("Enter an integer (or 'q' to quit): ")
+    
     while sumInput != 'q':
         sum = sum + int(sumInput)
-        sumInput = input("Enter an integer: ")
-    print("Your sum is",sum)
+        sumInput = input("Enter an integer (or 'q' to quit): ")
+        
+    print("Your sum is", sum)
 
 def task5():
+    # Approximate Euler's number (e) using a Taylor series
     euler = 0
     index = input("How many terms would you like to sum? ")
+    
     for i in range(int(index)):
-        euler = euler + (1/math.factorial(i))
+        euler = euler + (1 / math.factorial(i))
+        
     print("Your number is:", euler)
 
 def task8():
+    # Truncate a number to a specific number of decimal places without rounding
     number = float(input("Enter a number to truncate: "))
     digits = int(input("Enter a number of decimals to truncate to: "))
+    
+    # Shift decimal point right, chop off fractional part, then shift back left
     factor = 10 ** digits
-    truncated = (int)(number * factor)/factor
-    print("Your number truncated is:",truncated)
+    truncated = (int(number * factor)) / factor
+    
+    print("Your number truncated is:", truncated)
 
 def get_grade_range(score):
+    # Determine and print the letter grade based on the final percentage
     if score >= 85:
         grade = 'A'
     elif score >= 70:
@@ -81,14 +92,13 @@ def get_grade_range(score):
     elif score >= 50:
         grade = 'D'
     else:
-        # Print the fail message and exit the function immediately
         print('This grade is in the Fail range.')
         return 
 
     print(f"This grade is in the {grade} range. The instructor will decide if it is {grade}+, {grade}, or {grade}-.")
 
 def task9():
-    # User Inputs
+    # Calculate a weighted final grade from various assignment and exam scores
     ice = float(input("Enter total ICE score (out of 500): "))
     exam1 = float(input("Enter Exam 1 score (out of 60): "))
     exam2 = float(input("Enter Exam 2 score (out of 60): "))
@@ -97,6 +107,7 @@ def task9():
     labs = float(input("Enter total Labs score (out of 900): "))
     hw = float(input("Enter total Homework score (out of 400): "))
 
+    # Calculate points earned based on syllabus weights
     points_earned = (
         (ice / 500) * 14
         + (exam1 / 60) * 10
@@ -107,10 +118,9 @@ def task9():
         + (hw / 400) * 10
     )
     
-    # Scales the 90 available points up to 100%
+    # Scale the 90 available points up to a standard 100% scale
     final_percentage = (points_earned / 90) * 100
 
-    # Display output
     print(f"\nFinal Percentage Score: {final_percentage:.2f}%")
     get_grade_range(final_percentage)
 
