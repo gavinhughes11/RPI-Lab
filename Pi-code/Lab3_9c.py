@@ -3,7 +3,7 @@ from time import sleep
 
 led_pins = [18, 23, 24, 25, 12, 16, 20, 21, 26]
 leds = [LED(pin) for pin in led_pins]
-button = Button(23, pull_up=False)
+button = Button(19, pull_up=False)
 
 # Start with LED 1 ON and all others OFF
 for led in leds:
